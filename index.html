@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Google Play Store Reviews Analytics</title>
+    <title>Google Play Store Review Analytics</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #333;
@@ -14,6 +22,8 @@
             margin: 0;
             padding: 0;
         }
+
+        /* HEADER */
 
         .header {
             display: flex;
@@ -25,30 +35,45 @@
         }
 
         .header img {
-            height: 50px;
+            height: 65px;
+            width: auto;
         }
 
         .header h1 {
-            margin: 0;
+            font-size: 38px;
             text-align: center;
+            margin: 0;
         }
+
+
+        /* 2 COLUMNS × 3 ROWS */
 
         .container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            justify-items: center;
             padding: 20px;
+            justify-items: center;
         }
+
+
+        /* EACH CHART BOX */
 
         .plot-container {
             border: 2px solid #555;
             background-color: #222;
+
             width: 600px;
             height: 500px;
+
             position: relative;
             overflow: hidden;
+
+            cursor: pointer;
         }
+
+
+        /* CHART */
 
         .plot {
             width: 100%;
@@ -61,28 +86,51 @@
             border: none;
         }
 
+
+        /* TIME MESSAGE */
+
         .chart-message {
             display: none;
+
             justify-content: center;
             align-items: center;
+
+            width: 100%;
             height: 100%;
+
             text-align: center;
+
             font-size: 20px;
             font-weight: bold;
+
             color: white;
+
+            padding: 20px;
         }
+
+
+        /* INSIGHTS */
 
         .insights {
             display: none;
+
             position: absolute;
+
             top: 10px;
             right: 10px;
+
             background: rgba(0, 0, 0, 0.85);
+
             color: white;
+
             padding: 8px;
+
             border-radius: 5px;
+
             font-size: 12px;
+
             max-width: 220px;
+
             z-index: 10;
         }
 
@@ -90,15 +138,43 @@
             display: block;
         }
 
+
+        /* RESPONSIVE */
+
         @media (max-width: 1300px) {
+
             .container {
                 grid-template-columns: 1fr;
             }
+
         }
+
+        @media (max-width: 700px) {
+
+            .plot-container {
+                width: 95vw;
+                height: 500px;
+            }
+
+            .header {
+                flex-direction: column;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+        }
+
     </style>
+
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <div class="header">
 
@@ -111,153 +187,270 @@
 
     <img
         src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-        alt="Google Play Store"
+        alt="Google Play"
     >
 
 </div>
 
+
+<!-- CHART CONTAINER -->
+
 <div class="container">
 
+
     <!-- CHART 1 -->
-    <div class="plot-container"
-         data-start="15"
-         data-end="17">
+
+    <div
+        class="plot-container"
+        data-start="15"
+        data-end="17"
+    >
 
         <div class="plot">
+
             <iframe src="chart1.html"></iframe>
+
         </div>
 
         <div class="chart-message">
-            Chart 1 is available only between<br>
+
+            Chart is available only between
             15:00 and 17:00 IST.
+
+        </div>
+
+        <div class="insights">
+
+            Chart 1 Insights
+
         </div>
 
     </div>
+
 
 
     <!-- CHART 2 -->
-    <div class="plot-container"
-         data-start="18"
-         data-end="20">
+
+    <div
+        class="plot-container"
+        data-start="18"
+        data-end="20"
+    >
 
         <div class="plot">
+
             <iframe src="chart2.html"></iframe>
+
         </div>
 
         <div class="chart-message">
-            Chart 2 is available only between<br>
+
+            Chart is available only between
             18:00 and 20:00 IST.
+
+        </div>
+
+        <div class="insights">
+
+            Chart 2 Insights
+
         </div>
 
     </div>
+
 
 
     <!-- CHART 3 -->
-    <div class="plot-container"
-         data-start="13"
-         data-end="14">
+
+    <div
+        class="plot-container"
+        data-start="13"
+        data-end="14"
+    >
 
         <div class="plot">
+
             <iframe src="chart3.html"></iframe>
+
         </div>
 
         <div class="chart-message">
-            Chart 3 is available only between<br>
+
+            Chart is available only between
             13:00 and 14:00 IST.
+
+        </div>
+
+        <div class="insights">
+
+            Chart 3 Insights
+
         </div>
 
     </div>
+
 
 
     <!-- CHART 4 -->
-    <div class="plot-container"
-         data-start="18"
-         data-end="21">
+
+    <div
+        class="plot-container"
+        data-start="18"
+        data-end="21"
+    >
 
         <div class="plot">
+
             <iframe src="chart4.html"></iframe>
+
         </div>
 
         <div class="chart-message">
-            Chart 4 is available only between<br>
+
+            Chart is available only between
             18:00 and 21:00 IST.
+
+        </div>
+
+        <div class="insights">
+
+            Chart 4 Insights
+
         </div>
 
     </div>
+
 
 
     <!-- CHART 5 -->
-    <div class="plot-container"
-         data-start="21"
-         data-end="24">
+
+    <div
+        class="plot-container"
+        data-start="17"
+        data-end="19"
+    >
 
         <div class="plot">
+
             <iframe src="chart5.html"></iframe>
+
         </div>
 
         <div class="chart-message">
-            Chart 5 is available only between<br>
-            21:00 and 00:00 IST.
+
+            Chart is available only between
+            17:00 and 19:00 IST.
+
+        </div>
+
+        <div class="insights">
+
+            Chart 5 Insights
+
         </div>
 
     </div>
+
 
 
     <!-- CHART 6 -->
-    <div class="plot-container"
-         data-start="15"
-         data-end="17">
+
+    <div
+        class="plot-container"
+        data-start="16"
+        data-end="18"
+    >
 
         <div class="plot">
+
             <iframe src="chart6.html"></iframe>
+
         </div>
 
         <div class="chart-message">
-            Chart 6 is available only between<br>
-            15:00 and 17:00 IST.
+
+            Chart is available only between
+            16:00 and 18:00 IST.
+
+        </div>
+
+        <div class="insights">
+
+            Chart 6 Insights
+
         </div>
 
     </div>
+
 
 </div>
 
 
+
 <script>
 
-function getISTHour() {
 
-    const formatter = new Intl.DateTimeFormat("en-US", {
-        timeZone: "Asia/Kolkata",
-        hour: "numeric",
-        hour12: false
-    });
-
-    return Number(formatter.format(new Date()));
-}
-
+/* CHECK CURRENT IST TIME */
 
 function checkChartVisibility() {
 
-    const currentHour = getISTHour();
+    const now = new Date();
 
-    const charts = document.querySelectorAll(".plot-container");
+
+    const istHour = Number(
+
+        new Intl.DateTimeFormat(
+            "en-GB",
+            {
+                timeZone: "Asia/Kolkata",
+                hour: "2-digit",
+                hour12: false
+            }
+        ).format(now)
+
+    );
+
+
+    const charts =
+        document.querySelectorAll(".plot-container");
+
 
     charts.forEach(function(chart) {
 
-        const start = Number(chart.dataset.start);
-        const end = Number(chart.dataset.end);
 
-        const plot = chart.querySelector(".plot");
-        const message = chart.querySelector(".chart-message");
+        const start =
+            parseInt(chart.dataset.start);
 
-        if (currentHour >= start && currentHour < end) {
+
+        const end =
+            parseInt(chart.dataset.end);
+
+
+        const plot =
+            chart.querySelector(".plot");
+
+
+        const message =
+            chart.querySelector(".chart-message");
+
+
+        /* SHOW CHART DURING ITS TIME WINDOW */
+
+        if (istHour >= start && istHour < end) {
 
             plot.style.display = "block";
+
             message.style.display = "none";
 
-        } else {
+        }
+
+
+        /* OTHERWISE SHOW MESSAGE */
+
+        else {
 
             plot.style.display = "none";
+
             message.style.display = "flex";
 
         }
@@ -267,14 +460,25 @@ function checkChartVisibility() {
 }
 
 
-/* Run immediately when page opens */
-checkChartVisibility();
+/* RUN WHEN PAGE LOADS */
+
+window.addEventListener(
+    "load",
+    checkChartVisibility
+);
 
 
-/* Check again every minute */
-setInterval(checkChartVisibility, 60000);
+/* CHECK AGAIN EVERY MINUTE */
+
+setInterval(
+    checkChartVisibility,
+    60000
+);
+
 
 </script>
 
+
 </body>
+
 </html>
