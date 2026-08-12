@@ -23,6 +23,7 @@
             padding: 0;
         }
 
+
         /* HEADER */
 
         .header {
@@ -50,10 +51,10 @@
 
         .container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
             padding: 20px;
-            justify-items: center;
+            width: 100%;
         }
 
 
@@ -63,7 +64,7 @@
             border: 2px solid #555;
             background-color: #222;
 
-            width: 600px;
+            width: 100%;
             height: 500px;
 
             position: relative;
@@ -119,51 +120,25 @@
             top: 10px;
             right: 10px;
 
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.90);
 
             color: white;
 
-            padding: 8px;
+            padding: 12px;
 
             border-radius: 5px;
 
-            font-size: 12px;
+            font-size: 13px;
+            line-height: 1.4;
 
-            max-width: 220px;
+            width: 280px;
+            max-width: 45%;
 
             z-index: 10;
         }
 
         .plot-container:hover .insights {
             display: block;
-        }
-
-
-        /* RESPONSIVE */
-
-        @media (max-width: 1300px) {
-
-            .container {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-        @media (max-width: 700px) {
-
-            .plot-container {
-                width: 95vw;
-                height: 500px;
-            }
-
-            .header {
-                flex-direction: column;
-            }
-
-            .header h1 {
-                font-size: 28px;
-            }
-
         }
 
     </style>
@@ -221,7 +196,11 @@
 
         <div class="insights">
 
-            Chart 1 Insights
+            <strong>Chart 1 Insight:</strong><br><br>
+
+            The FAMILY category received the highest user engagement
+            in terms of reviews, while average ratings remained
+            relatively consistent across the top installed categories.
 
         </div>
 
@@ -252,7 +231,12 @@
 
         <div class="insights">
 
-            Chart 2 Insights
+            <strong>Chart 2 Insight:</strong><br><br>
+
+            The visualization does not display highlighted regions
+            because the dataset lacks geographic attributes required
+            for choropleth mapping. Therefore, install statistics
+            cannot be represented geographically.
 
         </div>
 
@@ -283,7 +267,12 @@
 
         <div class="insights">
 
-            Chart 3 Insights
+            <strong>Chart 3 Insight:</strong><br><br>
+
+            PERSONALIZATION outperformed the other categories
+            in both average installs and revenue, while FAMILY
+            generated higher revenue than GAME despite comparable
+            installation levels.
 
         </div>
 
@@ -314,7 +303,11 @@
 
         <div class="insights">
 
-            Chart 4 Insights
+            <strong>Chart 4 Insight:</strong><br><br>
+
+            COMMUNICATION dominated monthly installs with a sharp
+            peak in Month 8, while growth markers highlight periods
+            where category-wise installations increased by more than 20%.
 
         </div>
 
@@ -345,7 +338,12 @@
 
         <div class="insights">
 
-            Chart 5 Insights
+            <strong>Chart 5 Insight:</strong><br><br>
+
+            Applications of different sizes generally achieve
+            similar ratings, while the largest install counts are
+            associated with apps maintaining consistently positive
+            user ratings.
 
         </div>
 
@@ -376,7 +374,12 @@
 
         <div class="insights">
 
-            Chart 6 Insights
+            <strong>Chart 6 Insight:</strong><br><br>
+
+            The cumulative installation trend peaked during
+            Months 7 and 8, primarily driven by Productivity,
+            while Photography and Tools also contributed
+            significantly to overall installations.
 
         </div>
 
@@ -395,7 +398,6 @@
 function checkChartVisibility() {
 
     const now = new Date();
-
 
     const istHour = Number(
 
@@ -417,18 +419,14 @@ function checkChartVisibility() {
 
     charts.forEach(function(chart) {
 
-
         const start =
             parseInt(chart.dataset.start);
-
 
         const end =
             parseInt(chart.dataset.end);
 
-
         const plot =
             chart.querySelector(".plot");
-
 
         const message =
             chart.querySelector(".chart-message");
